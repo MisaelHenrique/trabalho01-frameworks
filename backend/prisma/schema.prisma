@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,16 +14,17 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String
+  password String
 }
 
 model Product {
-  id        Int     @id @default(autoincrement())
-  title     String?
+  id Int     @id @default(autoincrement())
+  title String?
   description String?
-  price Float 
-  discountPercentage Float
-  rating Float
-  stock Int
+  price Float?
+  discountPercentage Float?
+  rating Float?
+  stock Int?
   brand String?
   category String?
   thumbnail String?
