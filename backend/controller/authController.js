@@ -1,9 +1,17 @@
 const bcrypt =  require('bcrypt');
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv-safe');
+dotenv.config();
+const { PrismaClient } = require('@prisma/client');
+
+//sempre instanciar o prisma client para realizar consultas no banco
+const prisma = new PrismaClient;
+
 
 //tudo que é criado será exportado
 module.exports = {
     cadastroUser: async(req,res) => {
+        console.log(`METODO`)
         const{name, email, password} = req.body;
 
         const userExists = await prisma.user.findUnique({
@@ -23,6 +31,7 @@ module.exports = {
         })
 
         return res.status(200).json({message: "User created", newUser});
+
     },
 
     login: async (req, res) => {

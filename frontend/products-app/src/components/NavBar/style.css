@@ -1,0 +1,27 @@
+
+nav{
+
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    padding: 1em;
+
+}
+
+.profile{
+
+    display: flex;
+
+}
+
+.imgProfile{
+
+    border-radius: 50%;
+
+}
+
+.nameProfile{
+
+    font-size: 10rem;
+
+}

@@ -8,6 +8,7 @@ authRouter.post('/cadastroUser', async (req, res) => {
         await authController.cadastroUser(req, res)
     } catch (error) {
         res.status(500).json({error})
+        console.error(error)
     }
 });
 
@@ -26,6 +27,5 @@ authRouter.post('/logout', async (req, res) => {
         res.status(500).json({error})
     }
 });
-
 
 module.exports = authRouter;
